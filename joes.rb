@@ -36,11 +36,16 @@ csv = CSV.read("minedminds.csv")
 minedminds.close
 username = params[:username]
 authenticate
-	if @auth == 1
-    erb :main,:locals => {:username => username,:csv => csv}
+	if @auth == 1 &&  params[:username] == "MinedMinds"
+		erb :management,:locals => {:username => username,:csv => csv}
 		
-    else erb :homepage,:locals => {:message => "Wrong Username or Password. Please try again.",:csv => csv,:username => username,}
-    end
+	elsif @auth == 1 
+		erb :main,:locals => {:username => username,:csv => csv}
+	
+	else erb :homepage,:locals => {:message => "Wrong Username or Password. Please try again.",:csv => csv,:username => username,}
+    
+	
+	end
     end
 
 get '/management' do
@@ -48,9 +53,6 @@ get '/management' do
 erb :management,:locals => {:csv => csv}
 
 end
-
-
- 
  
 post '/management' do
 
@@ -67,6 +69,5 @@ minedminds = File.open(minedminds,'a')
 minedminds.write( username + "," + assignment + "," + videohelp + "," + bloghelp + "," + status + "\r")
 minedminds.close
 redirect '/management'
+
 end
-
-
