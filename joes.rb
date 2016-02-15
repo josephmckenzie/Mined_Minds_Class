@@ -43,6 +43,30 @@ authenticate
     end
     end
 
-	
+get '/management' do
+ csv = CSV.read("minedminds.csv")
+erb :management,:locals => {:csv => csv}
+
+end
+
 
  
+ 
+post '/management' do
+
+username = params[:Username]
+assignment = params[:Assignment]
+videohelp = params[:VideoHelp]
+bloghelp = params[:BlogHelp]
+status = params[:Status]
+
+minedminds = "minedminds.csv"
+minedminds = File.open(minedminds,'a')
+
+
+minedminds.write( username + "," + assignment + "," + videohelp + "," + bloghelp + "," + status + "\r")
+minedminds.close
+redirect '/management'
+end
+
+

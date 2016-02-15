@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel="stylesheet" type="text/css" href="/style.css">
+<title> Mind Minds</title>
+</head>
+
+
+        <ol>
+          <li><img src="images/mm.jpg" style="margin-left:-3%;"align="left"></li>
+          <li><b><a href='/'>Home</a></b></li>
+        </ol>
+  
+
+<p>Minds Minds Training & Consultancy</p>
+<p><p2></p2></p>
+<table>
+	<thead>
+		
+		<th colspan="5">Student Information </th>
+	
+	</thead>
+	<tbody>
+	<tr></tr>
+	<td>Name</td><td>Assignement</td><td>Video Help</td><td>Blog Help</td><td>Assignement Status</td>
+	<% csv.each do |row|%>
+	
+
+	
+	<tr></tr>
+	<td><%=row[0]%></td><td><%=row[1]%></td><td><%=row[2]%></td><td><%=row[3]%></td><td><%=row[4]%></td>
+	
+	<% end %>	
+	
+	</tbody>
+	</table>
+
+<form action="/management" method="POST">
+
+<br><br>
+
+<select required name="Username">
+  <option value="">Student Name</option>
+  <option value="Everyone">Everyone</option>
+  <option value="MinedMinds">Mined Minds</option>
+  <option value="Jonathan">Jon</option>
+  <option value="Amanda">Amanda</option>
+  <option value="Joe">Joe</option>
+  <option value="Rich">Rich</option>
+  <option value="Daniel">Daniel</option>
+  <option value="Angie">Angie</option>
+  <option value="Ann">Ann</option>
+  <option value="Heather">Heather</option>
+  <option value="Marvin">Marvin</option>
+  </select>
+  <br><br>
+  
+<input type="text" name="Assignment" value="Assignment" onFocus="this.value=''">
+<br><br>
+<input type="text" name="VideoHelp" value="Video Help" onFocus="this.value=''">
+<br><br>
+<input type="text" name="BlogHelp" value="Blog Help" onFocus="this.value=''">
+<br><br>
+
+<select required name="Status">
+  <option value="">Assignment Status</option>
+  <option value="Incomplete">Incomplete</option>
+  <option value="Complete">Complete</option>
+  </select>
+<br><br>
+<input type="submit" name="submit" value="Submit Information">
+
+</form>
+
+<br><br><br><br>
+
+<footer>
+<div id="footerBar1">
+ 
+  <p class=footer><b>Mined Minds.© Copyright-2016<br></a></b></p>
+​</div> 
+
+</footer>
+
+</html>
