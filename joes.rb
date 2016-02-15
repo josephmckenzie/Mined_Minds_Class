@@ -33,7 +33,7 @@ post '/login' do
 minedminds = "minedminds.csv"
 minedminds = File.open(minedminds,'a')
 csv = CSV.read("minedminds.csv")
-minedminds.close
+
 username = params[:username]
 authenticate
 	if @auth == 1 &&  params[:username] == "MinedMinds"
@@ -47,6 +47,10 @@ authenticate
 	
 	end
     end
+	
+	
+	
+	
 
 get '/management' do
  csv = CSV.read("minedminds.csv")
