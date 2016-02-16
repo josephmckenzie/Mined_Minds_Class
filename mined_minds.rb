@@ -7,7 +7,8 @@ end
  
 get '/login' do
     csv = CSV.read("minedminds.csv")
-	erb :homepage ,:locals => {:message => "Welcome Please Enter your Username & Password.", :csv => csv,}
+	csv2 = CSV.read("minedminds2.csv")
+	erb :homepage ,:locals => {:message => "Welcome Please Enter your Username & Password.", :csv => csv, :csv2 => csv2}
 
 	end
 
@@ -33,6 +34,12 @@ post '/login' do
 minedminds = "minedminds.csv"
 minedminds = File.open(minedminds,'a')
 csv = CSV.read("minedminds.csv")
+minedminds.close
+
+minedminds2 = "minedminds2.csv"
+minedminds2 = File.open(minedminds2,'a')
+csv2 = CSV.read("minedminds2.csv")
+minedminds2.close
 
 username = params[:username]
 authenticate
@@ -42,7 +49,7 @@ authenticate
 	elsif @auth == 1 
 		erb :main,:locals => {:username => username,:csv => csv}
 	
-	else erb :homepage,:locals => {:message => "Wrong Username or Password. Please try again.",:csv => csv,:username => username,}
+	else erb :homepage,:locals => {:message => "Wrong Username or Password. Please try again.",:csv => csv,:username => username, :csv => csv, :csv2 => csv2}
     
 	
 	end
