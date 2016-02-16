@@ -1,1 +1,1 @@
-web: bundle exec ruby mind_minds.rb #-p $PORT
+web: bundle exec ruby mined_minds.rb #-p $PORT
