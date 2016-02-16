@@ -27,7 +27,7 @@ def authenticate
 	if  username == @username && password == @password
 		@auth = 1
 	end
-end
+	end
 end
 
 post '/login' do
@@ -53,15 +53,12 @@ authenticate
     
 	
 	end
-    end
-	
-	
-	
-	
+end
+		
 
 get '/management' do
- csv = CSV.read("minedminds.csv")
-erb :management,:locals => {:csv => csv}
+	csv = CSV.read("minedminds.csv")
+		erb :management,:locals => {:csv => csv}
 
 end
  
@@ -79,6 +76,6 @@ minedminds = File.open(minedminds,'a')
 
 minedminds.write( username + "," + assignment + "," + videohelp + "," + bloghelp + "," + status + "\r")
 minedminds.close
-redirect '/management'
+	redirect '/management'
 
 end
